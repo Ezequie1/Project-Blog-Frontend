@@ -1,0 +1,80 @@
+.header{
+    position: fixed;
+    width: 100%;
+    background: #17171A;
+    height: 20vh;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    top: 0;
+}
+
+.header p{
+    font-size: 2.5rem;
+    margin-bottom: 0px;
+}
+
+.header span{
+    color: #E07B67;
+}
+
+.divInput{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50vw;
+    height: 5vh;
+    border-radius: 8px;
+    border: 2px solid #252529;
+    background: #202024;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.input{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    caret-color: #E07B67;
+}
+
+.input::placeholder{
+    color: #AFABB6;
+}
+
+.divNotFound{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.divNotFound img{
+    height: 25%;
+    width: 25%;
+}
+
+@media only screen and (max-width: 1440px){ 
+    .divInput{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 1024px){ 
+    .divInput{
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 1000px){ 
+    .divInput{
+        width: 85vw;
+    }
+}
