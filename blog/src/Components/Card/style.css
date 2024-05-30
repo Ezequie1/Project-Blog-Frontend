@@ -1,0 +1,121 @@
+.card{
+    background-color: #17171A;
+    border-radius: 8px;
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px 15px 10px;
+    border: 2px solid #17171A;
+    transition-duration: 0.3s;
+}
+
+.card:hover{
+    border: 2px solid #E07B67;
+}
+
+.iconAndDate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    color: #E07B67;
+}
+
+.contentCard{
+    width: 95%;
+    color: #717171;
+}
+
+.title{
+    margin: 0;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.iconsOption{
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.iconsOption svg{
+    cursor: pointer;
+}
+
+.outlined-multiline-static{
+    color: aqua;
+}
+
+.divButtons{
+    width: 100%;
+    gap: 1vw;
+}
+
+.buttonDelete{
+    outline: none;
+    border: 2px solid #E07B67;
+    width: 50%;
+    height: 40px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    background-color: transparent
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputSingle{
+    display: flex;
+    position: relative;
+}
+
+.inputSingle input{
+    width: 30vw;
+    border: 2px solid #717171;
+    background-color: transparent;
+    color: #fff;
+    height: 20vh;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    outline: none;
+    padding: 20px;
+}
+
+.inputSingle input div{
+    width: 100%;
+    height: 100%;
+}
+
+.inputSingle label{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #fff;
+}
+
+@media only screen and (max-width: 1440px){ 
+    .card{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 1024px){ 
+    .card{
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 1000px){ 
+    .card{
+        width: 85vw;
+    }
+}
