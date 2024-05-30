@@ -1,0 +1,81 @@
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    display: flex;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #17171A;
+    flex-direction: column;
+    padding: 4vh;
+    gap: 30px;
+    color: #fff;
+}
+
+.divInfosModal h2 span{
+    color: #E07B67;
+}
+
+.divButtonsModal{
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    transition-duration: 0.3s;
+}
+
+.buttonsModal{
+    height: 2.5rem;
+    padding: 0 5% 0 5%;
+    color: #fff;
+    border: 3px solid #E07B67;
+    border-radius: 8px;
+    transition-duration: 0.3s;
+    font-family: 'Lexend Deca', sans-serif;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.yes{
+    background-color: #E07B67;
+}
+
+.no{
+    background-color: transparent;
+}
+
+.no:hover{
+    background-color: #E07B67;
+}
+
+@media only screen and (max-width: 1440px){ 
+    .modal{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 1024px){ 
+    .modal{
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 1000px){ 
+    .modal{
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 500px){ 
+    .modal{
+        gap: 4vw;
+        padding: 5%;
+    }
+}
+
+@media only screen and (max-width: 400px){ 
+    .buttonsModal{
+        width: 100%;
+    }
+}

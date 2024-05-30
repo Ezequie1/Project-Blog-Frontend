@@ -3,3 +3,41 @@ body{
   margin: 0;
   background-color: #121214;
 }
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3vh;
+  padding-top: 25vh;
+  width: 100%;
+  padding-bottom: 8vh;
+}
+
+.iconAdd{
+  position: fixed;
+  bottom: 20vh;
+  right: 15%;
+  background-color: #e07b67;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+
+.space{
+  gap: 10px;
+}
+
+.space p{
+  margin: 5px;
+}
+
+.iconAdd:hover{
+  box-shadow: rgba(224, 123, 103, 0.2) 0px 8px 24px;
+  bottom: 21vh;
+}
