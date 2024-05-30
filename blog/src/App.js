@@ -1,6 +1,6 @@
-import './App.css';
+import './App.css'
 
-export function App() {
+export default function App() {
   return (
     <></>
   );
