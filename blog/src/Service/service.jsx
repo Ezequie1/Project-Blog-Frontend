@@ -10,7 +10,7 @@ export function searchPosts(value){
 }
 
 export function createPost(title, text){
-    return axios.get(urls.createPost, { title: title, text: text })
+    return axios.post(urls.createPost, { title: title, text: text })
 }
 
 export function favoritePost(id){
