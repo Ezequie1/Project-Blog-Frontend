@@ -124,7 +124,7 @@ export function Card({post, setSnack, openSnackFunc, persistChanges}){
     return(
         <div className="card">
             <div className="iconAndDate">
-                <p>{ getDataRefactor(post.data_post) }</p>
+                <p>{ getDataRefactor(post.dataPost) }</p>
                 <div className="iconsOption">
                     { 
                         favorite ? 
