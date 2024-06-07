@@ -9,7 +9,7 @@ export const urls = {
 
 export const urlsPRD = {
     getAll: "https://project-blog-backend.onrender.com/Posts",
-    createPost: "hhttps://project-blog-backend.onrender.com/Posts/Create",
+    createPost: "https://project-blog-backend.onrender.com/Posts/Create",
     favoritePost: "https://project-blog-backend.onrender.com/Posts/Favorite/",
     editPost: "https://project-blog-backend.onrender.com/Posts/Edit/",
     searchPosts: "https://project-blog-backend.onrender.com/Posts/Search/",
