@@ -6,3 +6,12 @@ export const urls = {
     searchPosts: "http://localhost:8080/Posts/Search/",
     deletePost: "http://localhost:8080/Posts/Delete/"
 }
+
+export const urlsPRD = {
+    getAll: "https://project-blog-backend.onrender.com/Posts",
+    createPost: "hhttps://project-blog-backend.onrender.com/Posts/Create",
+    favoritePost: "https://project-blog-backend.onrender.com/Posts/Favorite/",
+    editPost: "https://project-blog-backend.onrender.com/Posts/Edit/",
+    searchPosts: "https://project-blog-backend.onrender.com/Posts/Search/",
+    deletePost: "https://project-blog-backend.onrender.com/Posts/Delete/"
+}

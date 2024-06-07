@@ -1,33 +1,32 @@
 import React from "react"
 import "./style.css"
 import NotFoundIcon from '../../Static/Images/icon.png'
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search'
 import { CircularProgress } from '@mui/material'
 import { getPosts, searchPosts } from '../../Service/service'
 
 export function Header({setData, setContent}){
 
-    function notFound(){
+    function notValues() {
+        setData(null)
         return(
             <div className="divNotFound">
-                <img src={ NotFoundIcon } alt=""/>
+                <img src={ NotFoundIcon } className="imageNotFound"  alt=""/>
                 <p>Ops... Não encontramos nada!</p>
             </div>
         )
     }
 
     async function searchData(value){
-        setContent(
-            <div className="flex space">
-                <CircularProgress style={{color: '#E07B67'}}/>
-            </div>
-        )
+        setContent(<CircularProgress style={{color: '#E07B67'}}/>)
+        setData(null)
+
         if(value !== "") {
             await searchPosts(value).then( res => {
-                setTimeout(() => res.data.length === 0 ? setContent(notFound()) : setData(res.data), 500)  
+                setTimeout(() => res.data.length === 0 ? setContent(notValues) : setData(res.data), 500)  
             })
         }else{
-            await getPosts().then(res => setTimeout(() => setData(res.data), 500))
+            await getPosts().then( res => setTimeout(() => setData(res.data), 500))
         }
     }
 

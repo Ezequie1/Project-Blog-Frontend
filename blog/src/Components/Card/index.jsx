@@ -70,13 +70,13 @@ export function Card({post, setSnack, openSnackFunc, persistChanges}){
                     setTextButtonEdit('Salvar')
                 }, 500)
             }
-        }).catch(() => {
+        }).catch( error => {
             setTimeout(() => {
                 setTextButtonEdit('Salvar')
                 setSnack(
                     <div className="flex space">
                         <ReportProblemIcon style={{ color: "#E07B67" }}/>
-                        <p>Erro ao editar o post!</p>
+                        <p> { error.response.data.status === 404 ? error.response.data.message : 'Erro ao adicionar aos favoritos!' }</p>
                     </div>
                 )
                 openSnackFunc(true)
@@ -105,11 +105,12 @@ export function Card({post, setSnack, openSnackFunc, persistChanges}){
                 )
                 openSnackFunc(true)
             } 
-        }).catch(() => {
+        }).catch( error => {
+
             setSnack(
                 <div className="flex space">
                     <ReportProblemIcon style={{ color: "#E07B67" }}/>
-                    <p>Erro ao adicionar aos favoritos!</p>
+                    <p> { error.response.data.status === 404 ? error.response.data.message : 'Erro ao adicionar aos favoritos!' }</p>
                 </div>
             )
             openSnackFunc(true)

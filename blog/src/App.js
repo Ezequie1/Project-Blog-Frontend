@@ -73,9 +73,9 @@ export default function App() {
 
   return(
     <>
-      <Header function={setData} functionContent={setContent}/>
+      <Header setData={setData} setContent={setContent}/>
       <div className="column">
-        { data !== null ?         
+        { data !== null && data.length !== 0 ?         
           data.map((post, index) => {
             return <Card post={post} key={index} setSnack={setMessage} openSnackFunc={setOpen} persistChanges={setData}/>
           })
