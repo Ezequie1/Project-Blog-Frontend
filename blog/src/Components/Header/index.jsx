@@ -34,7 +34,7 @@ export function Header({setData, setContent}){
         <div className="header">
             <p><span>Code</span>lândia</p>
             <div className="divInput">
-                <SearchIcon fontSize="large" className="iconSearch" style={{color: "#E07B67"}}/>
+                <SearchIcon sx={{fontSize: { xs: 24, sm: 25, md: 25, lg: 30 } }} className="iconSearch" style={{color: "#E07B67"}}/>
                 <input type="text" placeholder="Pesquisar no blog" className="input" onChange={ event => searchData(event.target.value) }/>
             </div>
         </div>

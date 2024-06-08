@@ -41,3 +41,31 @@ body{
   box-shadow: rgba(224, 123, 103, 0.2) 0px 8px 24px;
   bottom: 21vh;
 }
+
+@media only screen and (max-height: 790px){ 
+  .column{
+    padding-top: 26vh;
+  }
+
+  .iconAdd{
+    bottom: 15vh;
+    right: 15%;
+  }
+}
+
+@media only screen and (max-height: 720px){ 
+  .column{
+    padding-top: 27vh;
+  }
+}
+
+@media only screen and (max-height: 600px){ 
+  .column{
+    padding-top: 28vh;
+  }
+
+  .iconAdd{
+    bottom: 12vh;
+    right: 12%;
+  }
+}

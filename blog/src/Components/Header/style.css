@@ -78,3 +78,49 @@
         width: 85vw;
     }
 }
+
+@media only screen and (max-height: 830px){ 
+    .header{
+        height: 22vh;
+    }
+}
+
+@media only screen and (max-height: 790px){ 
+    .header{
+        height: 23vh;
+    }
+}
+
+@media only screen and (max-height: 720px){ 
+    .header{
+        height: 24vh;
+    }
+
+    .header p{
+        font-size: 2.3rem;
+    }
+
+    .divInput{
+        height: 36px;
+    }
+}
+
+@media only screen and (max-height: 680px){ 
+    .header{
+        height: 25vh;
+    }
+
+    .header p{
+        font-size: 2.1rem;
+    }
+}
+
+@media only screen and (max-height: 600px){ 
+    .header{
+        height: 25vh;
+    }
+
+    .header p{
+        font-size: 2rem;
+    }
+}

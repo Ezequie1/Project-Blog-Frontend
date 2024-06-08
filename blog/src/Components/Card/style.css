@@ -119,3 +119,9 @@
         width: 85vw;
     }
 }
+
+@media only screen and (max-height: 720px){ 
+    .title{
+        font-size: 1.4rem;
+    }
+}
