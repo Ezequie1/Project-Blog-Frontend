@@ -62,7 +62,7 @@ export default function App() {
           setMessage(
             <div className="flex space">
               <ReportProblemIcon style={{ color: "#E07B67" }}/>
-              <p> {error.response.data.errors[0].defaultMessage} </p>
+              <p> { error.response.data.status === 400 ? "Título ou texto devem conter 5 caractéres no mínimo!" : "Erro ao salvar o post!"} </p>
             </div>
           )
           setOpen(true)

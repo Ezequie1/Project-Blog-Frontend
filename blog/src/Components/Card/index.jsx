@@ -76,7 +76,7 @@ export function Card({post, setSnack, openSnackFunc, persistChanges}){
                 setSnack(
                     <div className="flex space">
                         <ReportProblemIcon style={{ color: "#E07B67" }}/>
-                        <p> { error.response.data.status === 404 ? error.response.data.message : 'Erro ao adicionar aos favoritos!' }</p>
+                        <p> { error.response.data.status === 400 ? "Título ou texto devem conter 5 caractéres no mínimo!" : "Erro ao editar o post!"} </p>
                     </div>
                 )
                 openSnackFunc(true)
