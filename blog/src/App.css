@@ -53,19 +53,19 @@ body{
   }
 }
 
-@media only screen and (max-height: 720px){ 
+@media only screen and (max-height: 650px){ 
   .column{
     padding-top: 27vh;
-  }
-}
-
-@media only screen and (max-height: 600px){ 
-  .column{
-    padding-top: 28vh;
   }
 
   .iconAdd{
     bottom: 12vh;
     right: 12%;
+  }
+}
+
+@media only screen and (max-height: 630px){ 
+  .column{
+    padding-top: 28vh;
   }
 }

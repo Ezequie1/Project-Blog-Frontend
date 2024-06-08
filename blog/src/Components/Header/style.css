@@ -92,12 +92,8 @@
 }
 
 @media only screen and (max-height: 720px){ 
-    .header{
-        height: 24vh;
-    }
-
     .header p{
-        font-size: 2.3rem;
+        font-size: 2.4rem;
     }
 
     .divInput{
@@ -105,22 +101,40 @@
     }
 }
 
+@media only screen and (max-height: 700px){ 
+    .header p{
+        font-size: 2.3rem;
+    }
+}
+
 @media only screen and (max-height: 680px){ 
+    .header p{
+        font-size: 2.2rem;
+    }
+}
+
+@media only screen and (max-height: 650px){ 
     .header{
-        height: 25vh;
+        height: 23vh;
     }
 
     .header p{
-        font-size: 2.1rem;
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-height: 630px){ 
+    .header{
+        height: 24vh;
+    }
+
+    .header p{
+        font-size: 2rem;
     }
 }
 
 @media only screen and (max-height: 600px){ 
     .header{
         height: 25vh;
-    }
-
-    .header p{
-        font-size: 2rem;
     }
 }
