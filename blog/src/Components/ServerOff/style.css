@@ -1,0 +1,21 @@
+.divServerOff{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.divServerOff img{
+    height: 25%;
+    width: 25%;
+}
+
+.divServerOff p{
+    margin-bottom: 1%;
+}
+
+.divServerOff span{
+    color: #ffffff86;
+    font-size: 0.9rem;
+}

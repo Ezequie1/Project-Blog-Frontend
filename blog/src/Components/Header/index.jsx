@@ -1,5 +1,6 @@
 import React from "react"
 import "./style.css"
+import { ServerOff } from '../ServerOff'
 import NotFoundIcon from '../../Static/Images/icon.png'
 import SearchIcon from '@mui/icons-material/Search'
 import { CircularProgress } from '@mui/material'
@@ -24,9 +25,9 @@ export function Header({setData, setContent}){
         if(value !== "") {
             await searchPosts(value).then( res => {
                 setTimeout(() => res.data.length === 0 ? setContent(notValues) : setData(res.data), 500)  
-            })
+            }).catch(() => setContent(<ServerOff/>))
         }else{
-            await getPosts().then( res => setTimeout(() => setData(res.data), 500))
+            await getPosts().then( res => setTimeout(() => setData(res.data), 500)).catch(() => setContent(<ServerOff/>))
         }
     }
 

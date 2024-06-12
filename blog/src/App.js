@@ -9,6 +9,7 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { RenderModal } from "./Components/Modal"
 import { Header } from './Components/Header'
+import { ServerOff } from './Components/ServerOff'
 
 export default function App() {
   const [data, setData] = useState(null)
@@ -27,7 +28,7 @@ export default function App() {
 
   useEffect(() => {
     async function getData(){
-      await getPosts().then(res => setData(res.data))
+      await getPosts().then(res => setData(res.data)).catch(() => setContent(<ServerOff/>))
     }
 
     setTimeout(() => getData(), 1000)
@@ -77,7 +78,7 @@ export default function App() {
       <div className="column">
         { data !== null && data.length !== 0 ?         
           data.map((post, index) => {
-            return <Card post={post} key={index} setSnack={setMessage} openSnackFunc={setOpen} persistChanges={setData}/>
+            return <Card post={post} key={index} setSnack={setMessage} openSnackFunc={setOpen} persistChanges={setData} isServerOff={setContent}/>
           })
         :
           content
