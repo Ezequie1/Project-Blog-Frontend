@@ -15,7 +15,7 @@ body{
   gap: 3vh;
   padding-top: 25vh;
   width: 100%;
-  padding-bottom: 8vh;
+  min-height: 61vh;
 }
 
 .iconAdd{

@@ -7,18 +7,20 @@ import { CircularProgress } from "@mui/material"
 import Snackbar from '@mui/material/Snackbar'
 import ReportProblemIcon from '@mui/icons-material/ReportProblem'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
-import { RenderModal } from "./Components/Modal"
+import { RenderModal } from './Components/Modal'
 import { Header } from './Components/Header'
 import { ServerOff } from './Components/ServerOff'
+import { RenderPagination } from './Components/RenderPagination'
 
 export default function App() {
   const [data, setData] = useState(null)
   const [seeModal, setModal] = useState(false)
   const [content, setContent] = useState(<CircularProgress style={{color: '#E07B67'}}/>)
-  const [textButton, setTextButton] = useState('Salvar');
+  const [textButton, setTextButton] = useState('Salvar')
   const [title, setTitle] = useState('')
   const [text, setText] = useState('')
   const [open, setOpen] = useState(false)
+  const [paginationValues, setPaginationValues] = useState()
   const [message, setMessage] = useState(
     <div className="flex space">
       <CheckCircleOutlineIcon style={{ color: "green" }} fontSize="large"/>
@@ -28,7 +30,10 @@ export default function App() {
 
   useEffect(() => {
     async function getData(){
-      await getPosts().then(res => setData(res.data)).catch(() => setContent(<ServerOff/>))
+      await getPosts().then(res => {
+        setData(res.data.content)
+        setPaginationValues(res.data)
+      }).catch(() => setContent(<ServerOff/>))
     }
 
     setTimeout(() => getData(), 1000)
@@ -55,7 +60,7 @@ export default function App() {
           }, 500)
         }
 
-        getPosts().then(res => setData(res.data))
+        getPosts().then(res => setData(res.data.content))
 
       }).catch(error => {
         setTimeout(() => {
@@ -74,11 +79,11 @@ export default function App() {
 
   return(
     <>
-      <Header setData={setData} setContent={setContent}/>
+      <Header setData={setData} setContent={setContent} setActualPage={setPaginationValues}/>
       <div className="column">
         { data !== null && data.length !== 0 ?         
           data.map((post, index) => {
-            return <Card post={post} key={index} setSnack={setMessage} openSnackFunc={setOpen} persistChanges={setData} isServerOff={setContent}/>
+            return <Card post={post} key={index} setSnack={setMessage} openSnackFunc={setOpen} persistChanges={setData} isServerOff={setContent} actualPage={paginationValues.number}/>
           })
         :
           content
@@ -105,6 +110,7 @@ export default function App() {
         onClose={() => setOpen(false)}
         message={message}
       />
+      { data !== null && data.length !== 0 ? <RenderPagination value={paginationValues} setPageData={setData} setContent={setContent} paginationValues={setPaginationValues} /> : <></>}
     </>
   )
 }

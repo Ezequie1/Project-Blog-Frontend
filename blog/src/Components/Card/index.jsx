@@ -12,7 +12,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { editPost, favoritePost, getPosts, removePost } from '../../Service/service'
 import { ServerOff } from '../ServerOff'
 
-export function Card({post, setSnack, openSnackFunc, persistChanges, isServerOff}){
+export function Card({post, setSnack, openSnackFunc, persistChanges, isServerOff, actualPage}){
     const [favorite, setFavorite] = useState(post.favorite)
     const [title, setTitle] = useState(post.title)
     const [text, setText] = useState(post.text)
@@ -27,7 +27,7 @@ export function Card({post, setSnack, openSnackFunc, persistChanges, isServerOff
         removePost(id).then(res => {
             if(res.status === 200){
                 setTimeout(() => {
-                    getPosts().then(res => persistChanges(res.data)).catch(() => isServerOff(<ServerOff/>))
+                    getPosts(actualPage).then(res => persistChanges(res.data.content)).catch(() => isServerOff(<ServerOff/>))
                     setOpenExcludeModal(false)
                     setSnack(
                         <div className="flex space">
@@ -59,7 +59,7 @@ export function Card({post, setSnack, openSnackFunc, persistChanges, isServerOff
         editPost(title, text, post.id).then( res => {
             if(res.status === 200){
                 setTimeout(() => {
-                    getPosts().then(res => persistChanges(res.data)).catch(() => isServerOff(<ServerOff/>))
+                    getPosts(actualPage).then(res => persistChanges(res.data.content)).catch(() => isServerOff(<ServerOff/>))
                     setOpenEditModal(false)
                     setSnack(
                         <div className="flex space">

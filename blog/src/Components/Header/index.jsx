@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import { CircularProgress } from '@mui/material'
 import { getPosts, searchPosts } from '../../Service/service'
 
-export function Header({setData, setContent}){
+export function Header({setData, setContent, setActualPage}){
 
     function notValues() {
         setData(null)
@@ -23,11 +23,22 @@ export function Header({setData, setContent}){
         setData(null)
 
         if(value !== "") {
-            await searchPosts(value).then( res => {
-                setTimeout(() => res.data.length === 0 ? setContent(notValues) : setData(res.data), 500)  
+            await searchPosts(value, 0).then( res => {
+                setTimeout(() => {
+                    if(res.data.content.length === 0){
+                        setContent(notValues)
+                        setActualPage(res.data)
+                    }else{
+                        setData(res.data.content)
+                        setActualPage(res.data)
+                    }
+                }, 500)  
             }).catch(() => setContent(<ServerOff/>))
         }else{
-            await getPosts().then( res => setTimeout(() => setData(res.data), 500)).catch(() => setContent(<ServerOff/>))
+            await getPosts().then( res => setTimeout(() => {
+                setData(res.data.content)
+                setActualPage(res.data)
+            } , 500)).catch(() => setContent(<ServerOff/>))
         }
     }
 
@@ -36,7 +47,7 @@ export function Header({setData, setContent}){
             <p><span>Code</span>lândia</p>
             <div className="divInput">
                 <SearchIcon sx={{fontSize: { xs: 24, sm: 25, md: 25, lg: 30 } }} className="iconSearch" style={{color: "#E07B67"}}/>
-                <input type="text" placeholder="Pesquisar no blog" className="input" onChange={ event => searchData(event.target.value) }/>
+                <input type="text" placeholder="Pesquisar no blog" className="input" id="inputSearch" onChange={ event => searchData(event.target.value) }/>
             </div>
         </div>
     )
