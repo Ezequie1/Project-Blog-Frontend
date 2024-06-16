@@ -60,8 +60,18 @@ export default function App() {
           }, 500)
         }
 
-        getPosts().then(res => setData(res.data.content))
-
+        if(document.getElementById('inputSearch').value !== ''){
+          getPosts(1).then( res => {
+            getPosts(res.data.totalPages - 1).then( resGet => {
+              setData(resGet.data.content)
+              setPaginationValues(resGet.data)
+            })
+          })          
+        } else {
+          getPosts(paginationValues.number).then(resGet => {
+            setData(resGet.data.content)
+          })
+        }
       }).catch(error => {
         setTimeout(() => {
           setTextButton('Salvar')
